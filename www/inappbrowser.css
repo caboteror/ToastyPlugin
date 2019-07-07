@@ -18,25 +18,31 @@
  */
 
 .inAppBrowserWrap {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: 0 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999999;
-    box-sizing: border-box;
-    border: 40px solid #bfbfbf;
-    border: 40px solid rgba(0, 0, 0, 0.25);
+    background-color: rgba(0,0,0,0.75);
+    color: rgba(235,235,235,1.0);
 }
 
 .inAppBrowserWrapFullscreen {
     border: 0;
+}
+.inAppBrowserWrap menu {
+  overflow: auto;
+  list-style-type: none;
+  padding-left: 0;
+}
+.inAppBrowserWrap menu li {
+  font-size: 25px;
+  height: 25px;
+  float: left;
+  margin: 0 10px;
+  padding: 3px 10px;
+  text-decoration: none;
+  color: #ccc;
+  display: block;
+  background: rgba(30,30,30,0.50);
+}
+.inAppBrowserWrap menu li.disabled {
+    color: #777;
 }
 
 .inappbrowser-app-bar {
@@ -103,7 +109,7 @@
 
 /* Close */
 .action-close::before {
-    content: "\E0C7";
+    content: "aaaa";
     /* close icon is larger so we re-size it to fit other icons */
     font-size: 20px;
     line-height: 40px;
