@@ -717,7 +717,7 @@ static CDVUIInAppBrowser* instance = nil;
     CGFloat labelInset = 5.0;
     float locationBarY = toolbarIsAtBottom ? self.view.bounds.size.height - FOOTER_HEIGHT : self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
     
-    self.addressLabel.text = NSLocalizedString(locationBarY, nil);
+    //self.addressLabel.text = NSLocalizedString(locationBarY, nil);
     self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, locationBarY, self.view.bounds.size.width - labelInset, LOCATIONBAR_HEIGHT)];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
     self.addressLabel.alpha = 1.000;
