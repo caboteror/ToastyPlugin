@@ -717,7 +717,6 @@ static CDVUIInAppBrowser* instance = nil;
     CGFloat labelInset = 5.0;
     float locationBarY = toolbarIsAtBottom ? self.view.bounds.size.height - FOOTER_HEIGHT : self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
     
-    [topView setText:locationBarY];
     self.addressLabel.text = NSLocalizedString(locationBarY, nil);
     self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, locationBarY, self.view.bounds.size.width - labelInset, LOCATIONBAR_HEIGHT)];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
@@ -731,7 +730,7 @@ static CDVUIInAppBrowser* instance = nil;
     self.addressLabel.contentMode = UIViewContentModeScaleToFill;
     self.addressLabel.enabled = YES;
     self.addressLabel.hidden = NO;
-    //self.addressLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+   // self.addressLabel.lineBreakMode = NSLineBreakByTruncatingTail;
 
     if ([self.addressLabel respondsToSelector:NSSelectorFromString(@"setMinimumScaleFactor:")]) {
         [self.addressLabel setValue:@(10.0/[UIFont labelFontSize]) forKey:@"minimumScaleFactor"];
