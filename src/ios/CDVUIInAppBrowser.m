@@ -790,11 +790,6 @@ static CDVUIInAppBrowser* instance = nil;
 {
     // the advantage of using UIBarButtonSystemItemDone is the system will localize it for you automatically
     // but, if you want to set this yourself, knock yourself out (we can't set the title for a system Done button, so we have to create a new one)
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"UIAlertView"
-        message:@"My message" delegate:self cancelButtonTitle:@"Cancel"
-        otherButtonTitles:@"OK", nil];
-    [alert show];
-    [alert release];
     self.closeButton = nil;
     // Initialize with title if title is set, otherwise the title will be 'Done' localized
     self.closeButton = title != nil ? [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStyleBordered target:self action:@selector(close)] : [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(close)];
