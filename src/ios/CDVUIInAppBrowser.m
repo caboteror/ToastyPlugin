@@ -885,13 +885,13 @@ static CDVUIInAppBrowser* instance = nil;
             self.toolbar.frame = toolbarFrame;
         }
 
-        if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
+       // if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
             toolbarFrame.origin.y = 0;
             webViewBounds.origin.y += toolbarFrame.size.height;
             [self setWebViewFrame:webViewBounds];
-        } else {
-            toolbarFrame.origin.y = (webViewBounds.size.height + LOCATIONBAR_HEIGHT);
-        }
+        //} else {
+        //    toolbarFrame.origin.y = (webViewBounds.size.height + LOCATIONBAR_HEIGHT);
+        //}
         [self setWebViewFrame:webViewBounds];
 
     } else {
