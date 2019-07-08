@@ -29,8 +29,8 @@
 #define    kInAppBrowserToolbarBarPositionTop @"top"
 
 #define    TOOLBAR_HEIGHT 44.0
-#define    STATUSBAR_HEIGHT 20.0
-#define    LOCATIONBAR_HEIGHT 210.0
+#define    STATUSBAR_HEIGHT 200.0
+#define    LOCATIONBAR_HEIGHT 21.0
 #define    FOOTER_HEIGHT ((TOOLBAR_HEIGHT) + (LOCATIONBAR_HEIGHT))
 
 #pragma mark CDVUIInAppBrowser
@@ -715,7 +715,7 @@ static CDVUIInAppBrowser* instance = nil;
     }
 
     CGFloat labelInset = 5.0;
-    float locationBarY = self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
+    float locationBarY = 100;
 
     self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, locationBarY, self.view.bounds.size.width - labelInset, LOCATIONBAR_HEIGHT)];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
