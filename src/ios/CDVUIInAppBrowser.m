@@ -193,6 +193,8 @@ static CDVUIInAppBrowser* instance = nil;
             transitionStyle = UIModalTransitionStyleFlipHorizontal;
         } else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"crossdissolve"]) {
             transitionStyle = UIModalTransitionStyleCrossDissolve;
+        }else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"partialcurl"]) {
+            transitionStyle = UIModalTransitionStylePartialCurl;
         }
     }
     self.inAppBrowserViewController.modalTransitionStyle = transitionStyle;
