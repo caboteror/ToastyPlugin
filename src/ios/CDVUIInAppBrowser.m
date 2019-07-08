@@ -28,7 +28,7 @@
 #define    kInAppBrowserToolbarBarPositionBottom @"bottom"
 #define    kInAppBrowserToolbarBarPositionTop @"top"
 
-#define    TOOLBAR_HEIGHT 44.0
+#define    TOOLBAR_HEIGHT 440.0
 #define    STATUSBAR_HEIGHT 20.0
 #define    LOCATIONBAR_HEIGHT 21.0
 #define    FOOTER_HEIGHT ((TOOLBAR_HEIGHT) + (LOCATIONBAR_HEIGHT))
@@ -692,13 +692,13 @@ static CDVUIInAppBrowser* instance = nil;
     UIBarButtonItem* fixedSpaceButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpaceButton.width = 20;
 
-    float toolbarY = toolbarIsAtBottom ? self.view.bounds.size.height - TOOLBAR_HEIGHT : 5000.0;
+    float toolbarY = 5000.0;
     CGRect toolbarFrame = CGRectMake(0.0, toolbarY, self.view.bounds.size.width, TOOLBAR_HEIGHT);
 
     self.toolbar = [[UIToolbar alloc] initWithFrame:toolbarFrame];
     self.toolbar.alpha = 1.000;
     self.toolbar.autoresizesSubviews = YES;
-    self.toolbar.autoresizingMask = toolbarIsAtBottom ? (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin) : UIViewAutoresizingFlexibleWidth;
+    self.toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.toolbar.barStyle = UIBarStyleBlackOpaque;
     self.toolbar.clearsContextBeforeDrawing = NO;
     self.toolbar.clipsToBounds = NO;
@@ -715,7 +715,7 @@ static CDVUIInAppBrowser* instance = nil;
     }
 
     CGFloat labelInset = 5.0;
-    float locationBarY = toolbarIsAtBottom ? self.view.bounds.size.height - FOOTER_HEIGHT : self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
+    float locationBarY = self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
 
     self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, locationBarY, self.view.bounds.size.width - labelInset, LOCATIONBAR_HEIGHT)];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
