@@ -249,10 +249,6 @@ static CDVWKInAppBrowser* instance = nil;
             transitionStyle = UIModalTransitionStyleFlipHorizontal;
         } else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"crossdissolve"]) {
             transitionStyle = UIModalTransitionStyleCrossDissolve;
-        } else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"partialcurl"]) {
-            transitionStyle = UIModalTransitionStylePartialCurl;
-        } else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"coververtical"]) {
-            transitionStyle = UIModalTransitionStyleCoverVertical;
         }
     }
     self.inAppBrowserViewController.modalTransitionStyle = transitionStyle;
@@ -866,7 +862,7 @@ BOOL isExiting = FALSE;
     self.addressLabel.numberOfLines = 1;
     self.addressLabel.opaque = NO;
     self.addressLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-    self.addressLabel.text = NSLocalizedString(@"Cargando...", nil);
+    self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.addressLabel.textAlignment = NSTextAlignmentLeft;
     self.addressLabel.textColor = [UIColor colorWithWhite:1.000 alpha:1.000];
     self.addressLabel.userInteractionEnabled = NO;
@@ -994,19 +990,19 @@ BOOL isExiting = FALSE;
         self.toolbar.hidden = NO;
         CGRect webViewBounds = self.view.bounds;
         
-       // if (locationbarVisible) {
+        if (locationbarVisible) {
             // locationBar at the bottom, move locationBar up
             // put toolBar at the bottom
             webViewBounds.size.height -= FOOTER_HEIGHT;
             locationbarFrame.origin.y = webViewBounds.size.height;
             self.addressLabel.frame = locationbarFrame;
             self.toolbar.frame = toolbarFrame;
-        /*} else {
+        } else {
             // no locationBar, so put toolBar at the bottom
             CGRect webViewBounds = self.view.bounds;
             webViewBounds.size.height -= TOOLBAR_HEIGHT;
             self.toolbar.frame = toolbarFrame;
-        }*/
+        }
         
         if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
             toolbarFrame.origin.y = 0;
@@ -1157,7 +1153,7 @@ BOOL isExiting = FALSE;
     
     // loading url, start spinner, update back/forward
     
-    self.addressLabel.text = NSLocalizedString(@"Cargando...", nil);
+    self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
     
