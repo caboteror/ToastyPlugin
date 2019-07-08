@@ -176,14 +176,15 @@ static CDVUIInAppBrowser* instance = nil;
         [self.inAppBrowserViewController setCloseButtonTitle:browserOptions.closebuttoncaption :browserOptions.closebuttoncolor :closeButtonIndex];
     }
     // Set Presentation Style
-    UIModalPresentationStyle presentationStyle = UIModalPresentationFullScreen; // default
+    UIModalPresentationStyle.Popover
+    /*UIModalPresentationStyle presentationStyle = UIModalPresentationFullScreen; // default
     if (browserOptions.presentationstyle != nil) {
         if ([[browserOptions.presentationstyle lowercaseString] isEqualToString:@"pagesheet"]) {
             presentationStyle = UIModalPresentationPageSheet;
         } else if ([[browserOptions.presentationstyle lowercaseString] isEqualToString:@"formsheet"]) {
             presentationStyle = UIModalPresentationFormSheet;
         }
-    }
+    }*/
     self.inAppBrowserViewController.modalPresentationStyle = presentationStyle;
 
     // Set Transition Style
