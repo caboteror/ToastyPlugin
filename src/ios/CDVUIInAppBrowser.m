@@ -884,7 +884,7 @@ static CDVUIInAppBrowser* instance = nil;
         }
 
         if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
-            toolbarFrame.origin.y = 0;
+            toolbarFrame.origin.y = 50;
             webViewBounds.origin.y += toolbarFrame.size.height;
             [self setWebViewFrame:webViewBounds];
         } else {
