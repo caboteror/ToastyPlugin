@@ -176,15 +176,14 @@ static CDVUIInAppBrowser* instance = nil;
         [self.inAppBrowserViewController setCloseButtonTitle:browserOptions.closebuttoncaption :browserOptions.closebuttoncolor :closeButtonIndex];
     }
     // Set Presentation Style
-    UIModalPresentationStyle presentationStyle = UIModalPresentationStyle.Popover;
-    /*UIModalPresentationStyle presentationStyle = UIModalPresentationFullScreen; // default
+    UIModalPresentationStyle presentationStyle = UIModalPresentationFullScreen; // default
     if (browserOptions.presentationstyle != nil) {
         if ([[browserOptions.presentationstyle lowercaseString] isEqualToString:@"pagesheet"]) {
             presentationStyle = UIModalPresentationPageSheet;
         } else if ([[browserOptions.presentationstyle lowercaseString] isEqualToString:@"formsheet"]) {
             presentationStyle = UIModalPresentationFormSheet;
         }
-    }*/
+    }
     self.inAppBrowserViewController.modalPresentationStyle = presentationStyle;
 
     // Set Transition Style
@@ -194,8 +193,6 @@ static CDVUIInAppBrowser* instance = nil;
             transitionStyle = UIModalTransitionStyleFlipHorizontal;
         } else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"crossdissolve"]) {
             transitionStyle = UIModalTransitionStyleCrossDissolve;
-        }else if ([[browserOptions.transitionstyle lowercaseString] isEqualToString:@"partialcurl"]) {
-            transitionStyle = UIModalTransitionStylePartialCurl;
         }
     }
     self.inAppBrowserViewController.modalTransitionStyle = transitionStyle;
@@ -744,7 +741,7 @@ static CDVUIInAppBrowser* instance = nil;
     self.addressLabel.numberOfLines = 1;
     self.addressLabel.opaque = NO;
     self.addressLabel.shadowOffset = CGSizeMake(0.0, -1.0);
-    self.addressLabel.text = NSLocalizedString(@"Cargando...", nil);
+    self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.addressLabel.textAlignment = NSTextAlignmentLeft;
     self.addressLabel.textColor = [UIColor colorWithWhite:1.000 alpha:1.000];
     self.addressLabel.userInteractionEnabled = NO;
@@ -886,13 +883,13 @@ static CDVUIInAppBrowser* instance = nil;
             self.toolbar.frame = toolbarFrame;
         }
 
-       // if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
+        if ([toolbarPosition isEqualToString:kInAppBrowserToolbarBarPositionTop]) {
             toolbarFrame.origin.y = 0;
             webViewBounds.origin.y += toolbarFrame.size.height;
             [self setWebViewFrame:webViewBounds];
-        //} else {
-        //    toolbarFrame.origin.y = (webViewBounds.size.height + LOCATIONBAR_HEIGHT);
-        //}
+        } else {
+            toolbarFrame.origin.y = (webViewBounds.size.height + LOCATIONBAR_HEIGHT);
+        }
         [self setWebViewFrame:webViewBounds];
 
     } else {
@@ -1034,7 +1031,7 @@ static CDVUIInAppBrowser* instance = nil;
 {
     // loading url, start spinner, update back/forward
 
-    self.addressLabel.text = NSLocalizedString(@"Cargando...", nil);
+    self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
 
