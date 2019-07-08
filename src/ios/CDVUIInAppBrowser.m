@@ -717,7 +717,7 @@ static CDVUIInAppBrowser* instance = nil;
     CGFloat labelInset = 5.0;
     float locationBarY = toolbarIsAtBottom ? self.view.bounds.size.height - FOOTER_HEIGHT : self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
 
-    self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, 0, 0 + labelInset, LOCATIONBAR_HEIGHT)];
+    self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, locationBarY, self.view.bounds.size.width - labelInset, LOCATIONBAR_HEIGHT)];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
     self.addressLabel.alpha = 1.000;
     self.addressLabel.autoresizesSubviews = YES;
@@ -1034,7 +1034,28 @@ static CDVUIInAppBrowser* instance = nil;
     self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
-    self.navigationItem.title = @"The title";
+    UINavigationBar* navbar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+
+ 
+
+/* Create navigation item object & set the title of navigation bar. */
+UINavigationItem* navItem = [[UINavigationItem alloc] initWithTitle:self.shoppingItem.name];
+
+ 
+
+/* Create left button item. */
+UIBarButtonItem* cancelBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onTapCancel:)];
+navItem.leftBarButtonItem = cancelBtn;
+
+ 
+
+/* Assign the navigation item to the navigation bar.*/
+[navbar setItems:@[navItem]];
+
+ 
+
+/* add navigation bar to the root view.*/
+[self.view addSubview:navbar];
     NSLog(_browserOptions.hidespinner ? @"Yes" : @"No");
     if(!_browserOptions.hidespinner) {
         [self.spinner startAnimating];
