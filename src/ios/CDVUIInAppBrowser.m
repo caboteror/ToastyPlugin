@@ -1034,28 +1034,14 @@ static CDVUIInAppBrowser* instance = nil;
     self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.backButton.enabled = theWebView.canGoBack;
     self.forwardButton.enabled = theWebView.canGoForward;
-    UINavigationBar* navbar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+    UILabel *topView = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 80, 80)];
 
- 
+    [topView setText:@"Oeeeeee"];
 
-/* Create navigation item object & set the title of navigation bar. */
-UINavigationItem* navItem = [[UINavigationItem alloc] initWithTitle:self.shoppingItem.name];
+    
 
- 
-
-/* Create left button item. */
-UIBarButtonItem* cancelBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(onTapCancel:)];
-navItem.leftBarButtonItem = cancelBtn;
-
- 
-
-/* Assign the navigation item to the navigation bar.*/
-[navbar setItems:@[navItem]];
-
- 
-
-/* add navigation bar to the root view.*/
-[self.view addSubview:navbar];
+    [self.view addSubview:topView];
+    
     NSLog(_browserOptions.hidespinner ? @"Yes" : @"No");
     if(!_browserOptions.hidespinner) {
         [self.spinner startAnimating];
