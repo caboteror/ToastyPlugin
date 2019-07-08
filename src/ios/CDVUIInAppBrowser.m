@@ -176,7 +176,7 @@ static CDVUIInAppBrowser* instance = nil;
         [self.inAppBrowserViewController setCloseButtonTitle:browserOptions.closebuttoncaption :browserOptions.closebuttoncolor :closeButtonIndex];
     }
     // Set Presentation Style
-    UIModalPresentationStyle.Popover
+    UIModalPresentationStyle presentationStyle = UIModalPresentationStyle.Popover;
     /*UIModalPresentationStyle presentationStyle = UIModalPresentationFullScreen; // default
     if (browserOptions.presentationstyle != nil) {
         if ([[browserOptions.presentationstyle lowercaseString] isEqualToString:@"pagesheet"]) {
