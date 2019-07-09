@@ -718,7 +718,7 @@ static CDVUIInAppBrowser* instance = nil;
     float locationBarY = toolbarIsAtBottom ? self.view.bounds.size.height - FOOTER_HEIGHT : self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
     
     //self.addressLabel.text = NSLocalizedString(locationBarY, nil);
-    self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(labelInset, locationBarY, self.view.bounds.size.width - labelInset, LOCATIONBAR_HEIGHT)];
+    self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 80, 80)];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
     self.addressLabel.alpha = 1.000;
     self.addressLabel.autoresizesSubviews = YES;
@@ -744,7 +744,7 @@ static CDVUIInAppBrowser* instance = nil;
     self.addressLabel.shadowOffset = CGSizeMake(0.0, -1.0);
     self.addressLabel.text = NSLocalizedString(@"Loading...", nil);
     self.addressLabel.textAlignment = NSTextAlignmentLeft;
-    self.addressLabel.textColor = [UIColor colorWithWhite:1.000 alpha:1.000];
+    self.addressLabel.textColor = UIColor.black
     self.addressLabel.userInteractionEnabled = NO;
 
     NSString* frontArrowString = NSLocalizedString(@"►", nil); // create arrow from Unicode char
@@ -778,7 +778,7 @@ static CDVUIInAppBrowser* instance = nil;
 
     self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.toolbar];
-    [self.toolbar addSubview:self.addressLabel];
+    [self.view addSubview:self.addressLabel];
     [self.view addSubview:self.spinner];
 }
 
