@@ -708,7 +708,6 @@ static CDVUIInAppBrowser* instance = nil;
     self.toolbar.opaque = NO;
     self.toolbar.userInteractionEnabled = YES;
     if (_browserOptions.toolbarcolor != nil) { // Set toolbar color if user sets it in options
-      self.toolbar.barTintColor = [self colorFromHexString:_browserOptions.toolbarcolor];
     }
     if (!_browserOptions.toolbartranslucent) { // Set toolbar translucent to no if user sets it in options
       self.toolbar.translucent = NO;
@@ -717,13 +716,13 @@ static CDVUIInAppBrowser* instance = nil;
     CGFloat labelInset = 5.0;
     float locationBarY = toolbarIsAtBottom ? self.view.bounds.size.height - FOOTER_HEIGHT : self.view.bounds.size.height - LOCATIONBAR_HEIGHT;
     
-    //self.addressLabel.text = NSLocalizedString(locationBarY, nil);
-    self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 80, 80)];
+    self.addressLabel.text = NSLocalizedString(locationBarY, nil);
+    self.addressLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 180, 180)];
+    self.addressLabel.backgroundColor = [UIColor blueColor];
     self.addressLabel.adjustsFontSizeToFitWidth = NO;
     self.addressLabel.alpha = 1.000;
     self.addressLabel.autoresizesSubviews = YES;
     self.addressLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
-    self.addressLabel.backgroundColor = [UIColor clearColor];
     self.addressLabel.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
     self.addressLabel.clearsContextBeforeDrawing = YES;
     self.addressLabel.clipsToBounds = YES;
